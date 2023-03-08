@@ -17,11 +17,35 @@ const app = http.createServer( (req, res) => {
     // res.writeHead(302, {'Location':'http://example.com'});
     // res.end();
 
-    fs.readFile('./index.html', (err, data) => {
-        res.writeHead(200);
-        res.end(data);
-    });
+    // fs.readFile('./index.html', (err, data) => {
+    //     res.writeHead(200);
+    //     res.end(data);
+    // });
 
+    // fs.readFile('./index.html', (err, data) => {
+
+    //     if (err) throw err;
+
+    //     res.writeHead(200);
+    //     res.end(data);
+    // });
+
+    fs.readFile('./index.html2', (err, data) => {
+
+
+        if (err) {
+            console.log(err);
+            res.writeHead(500, {'Content-Type':'text/html; charset=utf-8'});
+            // res.end(err.message);
+            throw err;
+        }
+
+        else {
+            res.writeHead(200);
+            res.end(data);
+        }
+
+    });
 
 });
 
