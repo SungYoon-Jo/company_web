@@ -16,8 +16,36 @@ a:hover {
   background-color: blueviolet;
 }
 
+@keyframes anime {
+  /* from {
+    transform: rotateY(0); 
+  }
+  to {
+    transform: rotateY(360deg);
+  } */
+  0% {
+    /* transform: rotateY(0); */
+  }
+  50% {
+    transform: rotateY(360deg);
+  }
+}
+
 img {
   border: 5px solid black;
   border-radius: 30%;
-  transform: rotateZ(20deg);
+  /* transform: rotateZ(20deg); */
+  /* animation: anime 1s ease-in-out infinite; */
+}
+
+div {
+  background-color: blueviolet;
+  width: 200px;
+  height: 200px;
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) and (orientation: landscape) {
+  div {
+    background-color: blanchedalmond;
+  }
 }
