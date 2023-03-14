@@ -1,0 +1,23 @@
+a {
+  color: blueviolet;
+  background-color: bisque;
+  text-decoration: none;
+  font-size: 100px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  /* transition: background-color 10s ease-in-out, color 5s ease-in-out; */
+  /* transition: all 0.1s ease-in-out; */
+  transition: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+a:hover {
+  font-size: 200px;
+  color: bisque;
+  background-color: blueviolet;
+}
+
+img {
+  border: 5px solid black;
+  border-radius: 30%;
+  transform: rotateZ(20deg);
+}
