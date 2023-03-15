@@ -1,9 +1,9 @@
-const http = require('http');
-const url = require('url');
-const fs = require('fs');
+const http = require("http");
+const url = require("url");
+const fs = require("fs");
 
 const templateHtml = (title, menuList, clientPathname, data) => {
-    return `
+  return `
         <!DOCTYPE html>
             <html lang="ko">
             <head>
@@ -36,62 +36,59 @@ const templateHtml = (title, menuList, clientPathname, data) => {
                 </div>
             </body>
         </html>
-    `
-}
+    `;
+};
 
-const app = http.createServer((req, res)=> {
-    const clientUrl = req.url;
-    // console.log(clientUrl); 
+const app = http.createServer((req, res) => {
+  const clientUrl = req.url;
+  // console.log(clientUrl);
 
-    if (url === '/favicon.ico') { 
-        res.writeHead(404);
-        res.end();
-        return;
-    }
+  if (url === "/favicon.ico") {
+    res.writeHead(404);
+    res.end();
+    return;
+  }
 
-    const addr = clientUrl;
-    const clientQuery = url.parse(addr, true).query;
-    const clientPathname = url.parse(addr, true).pathname;
+  const addr = clientUrl;
+  const clientQuery = url.parse(addr, true).query;
+  const clientPathname = url.parse(addr, true).pathname;
 
-    if (clientPathname === '/') {
-        txtFileName = 'main'
-    }
-    else {
-        txtFileName = clientPathname.replace('/','');
-    }
-    // console.log(txtFileName)
+  if (clientPathname === "/") {
+    txtFileName = "main";
+  } else {
+    txtFileName = clientPathname.replace("/", "");
+  }
+  // console.log(txtFileName)
 
-    let menu = ['main','about','service'];
-    let ismenu = menu.indexOf(txtFileName);
-    console.log(ismenu);
+  let menu = ["main", "about", "service"];
+  let ismenu = menu.indexOf(txtFileName);
+  console.log(ismenu);
 
-    if ( ismenu < 0) {
-        res.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'});
-        res.write('no page<br />');
-        res.write('<a href="/"> go main page</a>')
-        res.end();
-    }
-    else {
-        fs.readFile(`txt/${txtFileName}.txt`,'utf-8',(err, data) => {
-            if (err) throw err;
+  if (ismenu < 0) {
+    res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+    res.write("no page<br />");
+    res.write('<a href="/"> go main page</a>');
+    res.end();
+  } else {
+    fs.readFile(`txt/${txtFileName}.txt`, "utf-8", (err, data) => {
+      if (err) throw err;
 
-            let menuList = '';
-            for(i=0; i<menu.length; i++) {
-                menuList += `<li><a href="/${menu[i]}">${menu[i].toUpperCase()}</a></li>`;
-            }
+      let menuList = "";
+      for (i = 0; i < menu.length; i++) {
+        menuList += `<li><a href="/${menu[i]}">${menu[
+          i
+        ].toUpperCase()}</a></li>`;
+      }
 
-            const title = txtFileName.toUpperCase();
-            const template = templateHtml(title, menuList, clientPathname, data);
+      const title = txtFileName.toUpperCase();
+      const template = templateHtml(title, menuList, clientPathname, data);
 
-            res.writeHead(200);
-            res.end(template);
-        });
-
-    }
- 
-
+      res.writeHead(200);
+      res.end(template);
+    });
+  }
 });
 
 app.listen(3000, () => {
-    console.log('listening on port 3000');
+  console.log("listening on port 3000");
 });
