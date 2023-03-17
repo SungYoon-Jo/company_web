@@ -23,7 +23,7 @@
 .user-component__subtitle {
   margin-top: 10px;
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--gray-color);
 }
 
 .user-component__avatar--xl {

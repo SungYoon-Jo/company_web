@@ -12,10 +12,12 @@
 /* Screens */
 @import "screens/login.css";
 @import "screens/friends.css";
+@import "screens/find.css";
 
 body {
   color: #2e363e;
   font-family: "Ubuntu", sans-serif;
+  height: 100vh;
 }
 
 .main-screen {
