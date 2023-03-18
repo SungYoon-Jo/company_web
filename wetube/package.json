@@ -7,7 +7,7 @@
     "url": "git+https://github.com/SungYoon-Jo/company_web.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node index.js"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "author": "whtjddbs0112@naver.com",
   "license": "MIT",
