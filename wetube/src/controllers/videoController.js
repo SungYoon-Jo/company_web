@@ -1,11 +1,11 @@
 export const trending = (req, res) => {
-  res.end("trend");
+  res.render("home");
 };
 export const see = (req, res) => {
-  return res.send("watch");
+  res.render("watch");
 };
 export const edit = (req, res) => {
-  return res.send("edit");
+  res.render("edit");
 };
 export const search = (req, res) => {
   res.send("search");
