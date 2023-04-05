@@ -1,5 +1,9 @@
-export const join = (req, res) => {
-  res.send("join");
+export const getJoin = (req, res) => {
+  res.render("join", { pageTitle: "Create Account" });
+};
+
+export const postJoin = (req, res) => {
+  res.end();
 };
 
 export const edit = (req, res) => {
