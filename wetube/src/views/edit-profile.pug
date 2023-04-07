@@ -1,0 +1,12 @@
+extends base.pug
+
+block content
+    form(method="post")
+        input(placeholder="Name" type="text", name="name", required value=loggedInUser.name)
+        input(placeholder="Email" type="email", name="email", required value=loggedInUser.email)
+        input(placeholder="Username" type="text", name="username", required value=loggedInUser.username)
+        input(placeholder="Location" type="text", name="location", required value=loggedInUser.location)
+        input(type="submit", value="Update Profile")
+        if !loggedInUser.socialOnly
+            hr
+            a(href="change-password") Change Password &rarr;
