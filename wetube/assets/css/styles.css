@@ -440,7 +440,7 @@ main {
   animation: goAway 0.5s ease-in-out forwards;
   animation-delay: 5s;
 }
-.message.error {
+.message.error, .message.info, .message.success {
   background-color: tomato;
   color: white;
 }
