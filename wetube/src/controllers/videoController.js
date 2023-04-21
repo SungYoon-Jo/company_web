@@ -1,4 +1,4 @@
-import Video from "../models/video";
+import Video from "../models/Video";
 import Comment from "../models/Comment";
 import User from "../models/User";
 
